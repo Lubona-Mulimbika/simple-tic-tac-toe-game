@@ -1,6 +1,6 @@
 const cells = document.querySelectorAll(".cell");
 let currentPlayer = "X";
-let isGameActive = true;
+let isGameActive;
 
 const winningScenarios = [
   // Rows
@@ -15,17 +15,20 @@ const winningScenarios = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-
+// board array to push clicked cells
 const board = ["", "", "", "", "", "", "", "", ""];
 
 // Add click event listener to each cell
 cells.forEach((cell, index) => {
+  isGameActive = true;
   cell.addEventListener("click", function handleCellClick() {
     if (this.textContent === "" && isGameActive === true) {
       this.textContent = currentPlayer;
       board[index] = currentPlayer;
-      currentPlayer = currentPlayer === "X" ? "O" : "X";
       checkWin(currentPlayer);
+      checkDraw();
+
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   });
 });
@@ -44,11 +47,18 @@ function checkWin(player) {
     }
   }
 }
+// check for a draw
+function checkDraw() {
+  if (board.every((cell) => cell !== "")) {
+    isGameActive = false;
+    alert("The game is a draw!");
+  }
+}
 
 const resetBtn = document.querySelector("#reset-button");
 
 // Add click event listener to the reset button
-resetBtn.addEventListener("click", function () {
+resetBtn.addEventListener("click", function resetGame() {
   // Reset the text content of each cell to an empty string and reset current player to X
   cells.forEach(function (cell) {
     currentPlayer = "X";
