@@ -1,0 +1,50 @@
+body {
+  background-color: #f6d4d4;
+}
+
+h1 {
+  text-align: center;
+}
+
+#board {
+  width: 500px;
+  height: 400px;
+  align-content: center;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid black;
+  background-color: rgb(243, 115, 243);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.game-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#reset-button {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: rgb(229, 135, 229);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  display: flex;
+}
+.button-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
