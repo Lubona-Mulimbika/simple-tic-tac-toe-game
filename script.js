@@ -49,8 +49,9 @@ function checkWin(player) {
 }
 // check for a draw
 function checkDraw() {
-  if (board.every((cell) => cell !== "")) {
+  if (board.every((cell) => cell !== "") && checkWin() === false) {
     isGameActive = false;
+
     alert("The game is a draw!");
   }
 }
