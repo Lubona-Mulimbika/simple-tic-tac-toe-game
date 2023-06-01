@@ -27,7 +27,6 @@ cells.forEach((cell, index) => {
       board[index] = currentPlayer;
       checkWin(currentPlayer);
       checkDraw();
-
       currentPlayer = currentPlayer === "X" ? "O" : "X";
     }
   });
